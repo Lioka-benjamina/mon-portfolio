@@ -71,7 +71,7 @@ const Portfolio: React.FC = () => {
       description: "Une plateforme de blog dynamique développée en PHP permettant aux utilisateurs de publier des articles et d’interagir via un système de commentaires.",
       technologies: ["HTML5", "CSS3","JAVASCRIPT", "PHP" , "MySQL"],
       githubLink: "https://github.com/Lioka-benjamina/Plateforme-de-blog-avec-commentaire.git",
-      image: "public/images/php.png"
+      image: "/images/php.png"
     },
     {
       id: 2,
@@ -80,7 +80,7 @@ const Portfolio: React.FC = () => {
       technologies: ["HTML5", "CSS3", "JAVASCRIPT"],
       githubLink: "https://github.com/Lioka-benjamina/calculateur-d-interet-simple-projet-coursera-.git",
       // liveLink: "https://task-manager-demo.com",
-      image: "public/images/calculatrice.png"
+      image: "/images/calculatrice.png"
     },
     {
       id: 3,
@@ -88,7 +88,7 @@ const Portfolio: React.FC = () => {
       description: "Site web portfolio présentant mes projets et compétences, avec un design responsive et moderne.",
       technologies: ["HTML5", "CSS3","React", "Typescript", "Nest" , "MySQL"],
       githubLink: "https://github.com/Lioka-benjamina",
-      image: "public/images/dash.png"
+      image: "/images/dash.png"
     },
   ];
 
@@ -197,7 +197,7 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
               <div className="image-container">
-                <img src="public/images/toque.jpeg" alt="Lioka Benjamina" className="profile-image" />
+                <img src="/images/toque.jpeg" alt="Lioka Benjamina" className="profile-image" />
               </div>
             </div>
           </div>
@@ -210,7 +210,7 @@ const Portfolio: React.FC = () => {
             <div className="about-content">
               <div className="about-image">
                 <div className="dessus"></div>
-                <img src="public/images/luc.jpg" alt="Lioka Benjamina" />
+                <img src="/images/luc.jpg" alt="Lioka Benjamina" />
               </div>
               <div className="about-text">
                 <h3>Lioka Benjamina</h3>
