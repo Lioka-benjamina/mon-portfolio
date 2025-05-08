@@ -18,6 +18,46 @@ const Portfolio: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
+  const [text , setText] = useState("")
+  const [isDeleting , setIsDeleting] = useState(false)
+  const [loopNum , setLoopNum] = useState(0)
+  const [typingSpeed , setTypingSpeed]  = useState(150)
+
+  
+  // Animation texte
+  const textArray = [
+    "Je suis un développeur FullStack ",
+    "Passionné par le développement web",
+    "Spécialisé en React & NestJS"
+]
+
+useEffect(()=>{
+  const handleTyping = () =>{
+      const current = loopNum % textArray.length
+      const fullText = textArray[current]
+
+      setText(
+          isDeleting ? fullText.substring(0 , text.length - 1) : fullText.substring(0 , text.length + 1) 
+      );
+
+      setTypingSpeed(
+          isDeleting ? 80 : 150
+      );
+
+      if(!isDeleting && text === fullText){
+          setTimeout(()=>setIsDeleting(true) , 1500)
+      }else if(isDeleting && text === ""){
+          setIsDeleting(false)
+          setLoopNum(loopNum + 1)
+
+          setTypingSpeed(100)
+      }
+  }
+
+  const timer = setTimeout(handleTyping, typingSpeed);
+  return () => clearTimeout(timer);
+},[text, isDeleting, loopNum, typingSpeed, textArray])
+
   // Pour détecter le scroll et changer le style du header
   useEffect(() => {
     const handleScroll = () => {
@@ -188,7 +228,7 @@ const Portfolio: React.FC = () => {
               <div className="text-content">
                 <h1>Lioka Benjamina</h1>
                 <h2>Développeur Web Full Stack</h2>
-                <p>Spécialisé en React et NestJS</p>
+                <p>{text}  <span className="text-blue-400 animate-pulse">|</span></p>
                 <div className="cta-buttons">
                   <a href="#contact" className="btn btn-primary">Me Contacter</a>
                   <button onClick={downloadCV} className="btn btn-secondary">
